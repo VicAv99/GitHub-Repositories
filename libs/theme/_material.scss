@@ -5,8 +5,8 @@ mat-sidenav {
 }
 
 .mat-sidenav-container {
-  background: $background;
   flex: 1;
+  background: $background;
   height: calc(100vh - 50px);
 }
 

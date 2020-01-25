@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  links = [];
+  links = [
+    {path: '', label: 'Repositories', icon: 'loyalty'},
+    {path: 'about', label: 'About', icon: 'loyalty'},
+  ];
 }

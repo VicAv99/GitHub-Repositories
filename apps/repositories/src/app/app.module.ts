@@ -3,15 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { MaterialModule } from '@gh/material';
 import { UiLibrariesModule } from '@gh/ui-libraries';
+import { RoutingModule } from './routing.module';
 
 import { AppComponent } from './app.component';
+import { RepositoriesComponent } from './repositories/repositories.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, RepositoriesComponent],
   imports: [
     BrowserModule,
     MaterialModule,
-    UiLibrariesModule
+    UiLibrariesModule,
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
