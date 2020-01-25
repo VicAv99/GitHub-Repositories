@@ -25,7 +25,10 @@
               "apps/repositories/src/favicon.ico",
               "apps/repositories/src/assets"
             ],
-            "styles": ["apps/repositories/src/styles.scss"],
+            "styles": [
+              "apps/repositories/src/styles.scss",
+              "libs/theme/theme.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -121,6 +124,37 @@
             "tsConfig": ["apps/repositories-e2e/tsconfig.e2e.json"],
             "exclude": ["**/node_modules/**", "!apps/repositories-e2e/**"]
           }
+        }
+      }
+    },
+    "material": {
+      "projectType": "library",
+      "root": "libs/material",
+      "sourceRoot": "libs/material/src",
+      "prefix": "gh",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/material/tsconfig.lib.json",
+              "libs/material/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/material/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/material/jest.config.js",
+            "tsConfig": "libs/material/tsconfig.spec.json",
+            "setupFile": "libs/material/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
         }
       }
     }

@@ -17,6 +17,9 @@
     "repositories-e2e": {
       "tags": [],
       "implicitDependencies": ["repositories"]
+    },
+    "material": {
+      "tags": []
     }
   }
 }
