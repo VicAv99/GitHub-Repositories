@@ -1,0 +1,17 @@
+@import 'variables';
+
+mat-sidenav {
+  width: $sidenav-width;
+}
+
+.mat-sidenav-container {
+  background: $background;
+  flex: 1;
+  height: calc(100vh - 50px);
+}
+
+mat-toolbar {
+  position: relative;
+  z-index: 99;
+  height: $toolbar-height !important;
+}

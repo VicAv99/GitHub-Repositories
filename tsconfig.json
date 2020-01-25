@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@gh/material": ["libs/material/src/index.ts"]
+      "@gh/material": ["libs/material/src/index.ts"],
+      "@gh/ui-libraries": ["libs/ui-libraries/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

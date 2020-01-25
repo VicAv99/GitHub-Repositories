@@ -1,0 +1,17 @@
+<gh-toolbar [links]="links" [sidenav]="sidenav"></gh-toolbar>
+
+<!-- Sidenav -->
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side">
+    <nav>
+      <!-- <a mat-button class="nav-link" *ngFor="let link of links" [routerLink]="link.path" routerLinkActive="active">
+        <mat-icon>
+          {{link.icon}}
+        </mat-icon>
+        {{link.label}}
+      </a> -->
+    </nav>
+  </mat-sidenav>
+
+  <!-- <router-outlet></router-outlet> -->
+</mat-sidenav-container>
