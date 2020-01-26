@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
+import { CoreDataModule } from '@gh/core-data';
 import { MaterialModule } from '@gh/material';
 import { AboutComponent } from './about/about.component';
 import { CallbackComponent } from './callback/callback.component';
@@ -12,6 +14,8 @@ const COMPONENTS = [AboutComponent, CallbackComponent, LoginComponent, ToolbarCo
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
+    CoreDataModule,
     MaterialModule
   ],
   declarations: COMPONENTS,

@@ -23,6 +23,9 @@
     },
     "ui-libraries": {
       "tags": []
+    },
+    "core-data": {
+      "tags": []
     }
   }
 }
