@@ -32,6 +32,22 @@
           <input matInput type="text" placeholder="Update repository app url"
             formControlName="homepageUrl" />
         </mat-form-field>
+
+        <div class="d-flex justify-content-end w-100">
+          <mat-button-toggle-group #group="matButtonToggleGroup" name="cloneType" class="h-fit-content mr-1">
+            <mat-button-toggle value="SSH">SSH</mat-button-toggle>
+            <mat-button-toggle value="HTTP">HTTP</mat-button-toggle>
+          </mat-button-toggle-group>
+
+          <mat-form-field appearance="fill" class="w-50">
+            <mat-label>App URL</mat-label>
+            <input matInput type="text" readonly #cloneInput [value]="createCloneLink(group)" />
+          </mat-form-field>
+
+          <button mat-button class="h-fit-content mt-2 ml-3" type="button" color="primary" [ngxClipboard]="cloneInput" (click)="copied()">
+            Copy!
+          </button>
+        </div>
       </mat-card-content>
       <mat-card-actions class="d-flex flex-row-reverse mr-1 mb-0">
         <button mat-button type="submit">Update</button>

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { ClipboardModule } from 'ngx-clipboard';
 import { CoreDataModule } from '@gh/core-data';
 import { CoreStateModule } from '@gh/core-state';
 import { MaterialModule } from '@gh/material';
@@ -20,6 +21,7 @@ import { RepositoriesCreateComponent } from './repositories/repositories-create/
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    ClipboardModule,
     CoreDataModule,
     CoreStateModule,
     MaterialModule,

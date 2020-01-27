@@ -59,6 +59,7 @@
     "graphql": "^14.5.8",
     "graphql-tag": "^2.10.1",
     "hammerjs": "^2.0.8",
+    "ngx-clipboard": "^12.3.0",
     "rxjs": "~6.4.0",
     "zone.js": "^0.9.1"
   },

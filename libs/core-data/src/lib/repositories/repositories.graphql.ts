@@ -46,7 +46,7 @@ export const createRepositoryMutation = gql`
   }
   ${repositoryFragment}
 `;
-// {repositoryId: "", name: "", homepageUrl: "", description: ""}
+
 export const updateRepositoryMutation = gql`
   mutation updateRepositoryMutation($input: UpdateRepositoryInput!) {
     updateRepository(input: $input) {
