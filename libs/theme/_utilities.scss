@@ -1,6 +1,13 @@
 @import 'variables';
 
 // General Utilities
+.back-hover {
+  transition: all .2s ease-in;
+  &:hover {
+    padding-right: 10px;
+  }
+}
+
 .cursor-pointer {
   pointer-events: all !important;
   cursor: pointer !important;

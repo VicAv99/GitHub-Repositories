@@ -1,1 +1,41 @@
-<p>repositories-details works!</p>
+<button mat-icon-button color="primary" class="back-hover cursor-pointer ml-5 mt-5" routerLink="/">
+  <mat-icon>arrow_back</mat-icon>
+</button>
+<div *ngIf="repository$ | async as repo" class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{repo.name}}</mat-card-title>
+      <mat-card-subtitle>
+        <a [href]="repo.homepageUrl || repo.url">{{repo.homepageUrl || repo.url}}</a>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <form [formGroup]="form" (submit)="update()">
+      <mat-card-content class="mb-0">
+        <mat-chip-list class="d-flex flex-row-reverse">
+          <mat-chip color="primary" selected>{{repo.isPrivate ? 'Private' : 'Public'}}</mat-chip>
+          <mat-chip>{{repo.isFork ? 'Is forked repo' : 'Forked ' + repo.forkCount + ' times'}}</mat-chip>
+        </mat-chip-list>
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Name</mat-label>
+          <input matInput type="text" placeholder="Update repository name"
+            formControlName="name" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Description</mat-label>
+          <textarea matInput type="text" placeholder="Update repository description"
+            cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+            formControlName="description" >
+          </textarea>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>App URL</mat-label>
+          <input matInput type="text" placeholder="Update repository app url"
+            formControlName="homepageUrl" />
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions class="d-flex flex-row-reverse mr-1 mb-0">
+        <button mat-button type="submit">Update</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

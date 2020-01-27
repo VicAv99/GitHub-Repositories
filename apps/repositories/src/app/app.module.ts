@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CoreDataModule } from '@gh/core-data';
 import { CoreStateModule } from '@gh/core-state';
@@ -16,6 +17,8 @@ import { RepositoriesDetailsComponent } from './repositories/repositories-detail
   declarations: [AppComponent, RepositoriesComponent, RepositoriesListComponent, RepositoriesDetailsComponent],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     CoreDataModule,
     CoreStateModule,
     MaterialModule,
