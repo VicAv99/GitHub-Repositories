@@ -1,12 +1,14 @@
-import { getUsernameQuery, usersQuery } from './user.graphql';
 import { Injectable } from '@angular/core';
 
 import { Apollo } from 'apollo-angular';
+import { ApolloQueryResult } from 'apollo-client';
 import { Observable } from 'rxjs';
+import { switchMap, map, tap } from 'rxjs/operators';
 
 import { User } from './user.model';
-import { switchMap, map } from 'rxjs/operators';
-import { ApolloQueryResult } from 'apollo-client';
+import { getUsernameQuery, usersQuery } from './user.graphql';
+
+const USERNAME = 'gh:username';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +22,7 @@ export class UserService {
       fetchPolicy: 'network-only'
     }).pipe(
       map((res: ApolloQueryResult<any>) => res.data.viewer.login),
+      tap((login: string) => localStorage.setItem(USERNAME, login)),
       switchMap((login: string) => this.apollo.query({
           query: usersQuery,
           fetchPolicy: 'network-only',
@@ -29,5 +32,9 @@ export class UserService {
         }).pipe(map((res: ApolloQueryResult<any>) => res.data.user))
       )
     );
+  }
+
+  getUsername() {
+    return localStorage.getItem(USERNAME);
   }
 }

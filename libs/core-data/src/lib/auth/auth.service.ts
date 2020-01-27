@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 
-export const TOKEN_NAME = 'gh:auth::repo-crud';
+export const TOKEN_NAME = 'gh:auth:token';
 
 @Injectable({
   providedIn: 'root'
