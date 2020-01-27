@@ -2,8 +2,13 @@
 
 .repo-component {
   .mat-tab-label {
+    &:first-of-type {
+      margin-left: 55px;
+    }
+    &:nth-of-type(2) {
+      border: none !important;
+    }
     border-top: $secondary solid 3px;
-    margin-left: 55px;
     min-width: 100px !important;
     border-radius: 5px;
     border-right: solid 1px grey;

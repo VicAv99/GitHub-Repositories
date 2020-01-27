@@ -1,0 +1,39 @@
+<mat-card class="w-100">
+  <mat-card-header>
+    <mat-card-title>
+      Create A New Repository
+    </mat-card-title>
+    <mat-card-subtitle>
+      A repository contains all project files, including the revision history.
+    </mat-card-subtitle>
+  </mat-card-header>
+  <form [formGroup]="form" (submit)="create()">
+    <mat-card-content>
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Repository Name</mat-label>
+        <input matInput type="text" placeholder="Choose a name for your repository"
+          formControlName="name" />
+        <mat-hint>
+          Great repository names are short and memorable.
+        </mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Repository Description</mat-label>
+        <textarea matInput type="text" placeholder="Choose a description for your repository"
+          formControlName="description">
+        </textarea>
+      </mat-form-field>
+
+      <mat-radio-group class="d-flex flex-column" formControlName="visibility">
+        <mat-radio-button color="primary" *ngFor="let repoType of repoTypes" class="my-2" [value]="repoType.type">
+          <span>{{repoType.type}} <br/> {{repoType.desc}}</span>
+        </mat-radio-button>
+      </mat-radio-group>
+    </mat-card-content>
+    <mat-card-actions class="d-flex flex-row-reverse">
+      <button mat-button type="submit">Create</button>
+      <button mat-button type="reset">Cancel</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

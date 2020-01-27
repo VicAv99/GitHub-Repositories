@@ -1,7 +1,7 @@
 export { CoreDataModule } from './lib/core-data.module';
 
 // Models
-export { Repository, emptyRepository } from './lib/repositories/repository.model';
+export { Repository, emptyRepository, Visibility } from './lib/repositories/repository.model';
 export { User, emptyUser } from './lib/user/user.model';
 
 // Services

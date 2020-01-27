@@ -12,9 +12,10 @@ import { AppComponent } from './app.component';
 import { RepositoriesComponent } from './repositories/repositories.component';
 import { RepositoriesListComponent } from './repositories/repositories-list/repositories-list.component';
 import { RepositoriesDetailsComponent } from './repositories/repositories-details/repositories-details.component';
+import { RepositoriesCreateComponent } from './repositories/repositories-create/repositories-create.component';
 
 @NgModule({
-  declarations: [AppComponent, RepositoriesComponent, RepositoriesListComponent, RepositoriesDetailsComponent],
+  declarations: [AppComponent, RepositoriesComponent, RepositoriesListComponent, RepositoriesDetailsComponent, RepositoriesCreateComponent],
   imports: [
     BrowserModule,
     FormsModule,
