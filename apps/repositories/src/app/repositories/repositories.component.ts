@@ -3,7 +3,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Repository } from '@gh/core-data';
-import { RepositoriesFacade } from '@gh/core-state';
+import { RepositoriesFacade, UsersFacade } from '@gh/core-state';
 
 @Component({
   selector: 'gh-repositories',
@@ -15,10 +15,12 @@ export class RepositoriesComponent implements OnInit {
   repositories$: Observable<Repository[]> = this.repositoriesFacade.allRepositories$;
 
   constructor(
-    private repositoriesFacade: RepositoriesFacade
+    private usersFacade: UsersFacade,
+    private repositoriesFacade: RepositoriesFacade,
   ) { }
 
   ngOnInit() {
+    this.usersFacade.loadUser();
     this.repositoriesFacade.loadRepositories();
   }
 

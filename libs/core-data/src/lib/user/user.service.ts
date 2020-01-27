@@ -17,23 +17,21 @@ export class UserService {
   constructor (private apollo: Apollo) { }
 
   user(): Observable<User> {
-    if (!!this.getUsername()) {
-      return this.apollo.query({
-        query: getUsernameQuery,
-        fetchPolicy: 'network-only'
-      }).pipe(
-        map((res: ApolloQueryResult<any>) => res.data.viewer.login),
-        tap((login: string) => localStorage.setItem(USERNAME, login)),
-        switchMap((login: string) => this.apollo.query({
-          query: usersQuery,
-          fetchPolicy: 'network-only',
-          variables: {
-            login
-          }
-        }).pipe(map((res: ApolloQueryResult<any>) => res.data.user))
-        )
-      );
-    }
+    return this.apollo.query({
+      query: getUsernameQuery,
+      fetchPolicy: 'network-only'
+    }).pipe(
+      map((res: ApolloQueryResult<any>) => res.data.viewer.login),
+      tap((login: string) => localStorage.setItem(USERNAME, login)),
+      switchMap((login: string) => this.apollo.query({
+        query: usersQuery,
+        fetchPolicy: 'network-only',
+        variables: {
+          login
+        }
+      }).pipe(map((res: ApolloQueryResult<any>) => res.data.user))
+      )
+    );
   }
 
   getUsername() {
