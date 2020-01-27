@@ -25,7 +25,8 @@ export class RepositoriesService {
         login
       }
     }).pipe(
-      map((response: ApolloQueryResult<any>) => response.data.user.repositories.nodes)
+      map((response: ApolloQueryResult<any>) => response.data.user.repositories.nodes),
+      map((repositories: any[]) => repositories.map((repo) => ({...repo, languages: repo.languages.nodes[0]})))
     )
   }
 

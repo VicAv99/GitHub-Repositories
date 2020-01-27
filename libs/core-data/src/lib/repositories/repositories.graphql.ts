@@ -10,6 +10,13 @@ const repositoryFragment = gql`
     forkCount
     isPrivate
     isFork
+    languages(first: 1) {
+      nodes {
+        name
+        color
+        id
+      }
+    }
     createdAt
     updatedAt
     pushedAt
@@ -19,7 +26,7 @@ const repositoryFragment = gql`
 export const repositoriesQuery = gql`
   query repositoriesQuery($login: String!) {
     user(login: $login) {
-      repositories(first: 100) {
+      repositories(first: 100, orderBy: {field: CREATED_AT, direction: DESC}) {
         nodes {
           ...repositoryFragment
         }

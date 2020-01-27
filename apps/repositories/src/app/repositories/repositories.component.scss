@@ -1,0 +1,16 @@
+@import 'libs/theme/variables';
+
+.repo-component {
+  .mat-tab-label {
+    border-top: $secondary solid 3px;
+    margin-left: 55px;
+    min-width: 100px !important;
+    border-radius: 5px;
+    border-right: solid 1px grey;
+    border-left: solid 1px grey;
+  }
+  .mat-ink-bar {
+    background-color: $accent !important;
+    height: 3px;
+  }
+}

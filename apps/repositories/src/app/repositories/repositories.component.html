@@ -1,1 +1,10 @@
-<p>repositories works!</p>
+<mat-tab-group class="repo-component mt-5">
+  <mat-tab label="Repositories">
+    <div class="container d-flex">
+      <div class="col-12">
+        <gh-repositories-list [repositories]="repositories$ | async">
+        </gh-repositories-list>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

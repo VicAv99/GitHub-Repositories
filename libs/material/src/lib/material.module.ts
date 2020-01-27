@@ -16,7 +16,8 @@ import {
   MatSnackBarModule,
   MatTableModule,
   MatToolbarModule,
-  MatButtonToggleModule
+  MatButtonToggleModule,
+  MatTabsModule
 } from '@angular/material';
 
 const MODULES = [
@@ -36,7 +37,8 @@ const MODULES = [
   MatSnackBarModule,
   MatTableModule,
   MatToolbarModule,
-  MatButtonToggleModule
+  MatButtonToggleModule,
+  MatTabsModule
 ];
 
 @NgModule({

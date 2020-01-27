@@ -9,9 +9,11 @@ import { RoutingModule } from './routing.module';
 
 import { AppComponent } from './app.component';
 import { RepositoriesComponent } from './repositories/repositories.component';
+import { RepositoriesListComponent } from './repositories/repositories-list/repositories-list.component';
+import { RepositoriesDetailsComponent } from './repositories/repositories-details/repositories-details.component';
 
 @NgModule({
-  declarations: [AppComponent, RepositoriesComponent],
+  declarations: [AppComponent, RepositoriesComponent, RepositoriesListComponent, RepositoriesDetailsComponent],
   imports: [
     BrowserModule,
     CoreDataModule,

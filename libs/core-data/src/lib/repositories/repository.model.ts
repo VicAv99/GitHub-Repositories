@@ -7,6 +7,7 @@ export interface Repository {
   forkCount: number;
   isPrivate: boolean;
   isFork: boolean;
+  languages: Language;
   createdAt: string;
   updatedAt: string;
   pushedAt: string;
@@ -25,6 +26,12 @@ export enum Visibility {
   INTERNAL = 'INTERNAL'
 }
 
+interface Language {
+  id: string;
+  name: string;
+  color: string;
+}
+
 export const emptyRepository: Repository = {
   id: null,
   name: '',
@@ -34,6 +41,11 @@ export const emptyRepository: Repository = {
   forkCount: 0,
   isPrivate: false,
   isFork: false,
+  languages: {
+    id: null,
+    name: '',
+    color: ''
+  },
   createdAt: '',
   updatedAt: '',
   pushedAt: ''

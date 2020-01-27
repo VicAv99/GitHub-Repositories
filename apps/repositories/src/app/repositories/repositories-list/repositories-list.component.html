@@ -1,0 +1,16 @@
+<mat-list>
+  <mat-list-item *ngFor="let repo of repositories; index as i" class="mat-list-option" [routerLink]="['repo', repo.id]">
+    <mat-divider></mat-divider>
+    <div mat-line class="d-flex">
+      <h2 mat-line class="font-weight-bold text-base">{{repo.name}}</h2>
+      <span *ngIf="repo.isPrivate" class="border rounded align-self-center text-muted fs-14 ml-3 px-2">Private</span>
+    </div>
+    <span mat-line class="text-muted">{{repo.description}}</span>
+    <div mat-line>
+      <div *ngIf="repo.languages?.id" class="repo-language-color" [style.background-color]="repo.languages?.color"></div>
+      <span *ngIf="repo.languages?.id" >&nbsp;{{repo.languages?.name}}</span>
+      <span class="text-muted ml-4">Updated on {{repo.updatedAt | date}}</span>
+    </div>
+    <mat-icon class="mat-pseudo-checkbox">star</mat-icon>
+  </mat-list-item>
+</mat-list>
