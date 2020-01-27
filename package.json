@@ -7,6 +7,7 @@
     "nx": "nx",
     "start": "ng serve",
     "build": "ng build",
+    "deploy": "ng build --prod && cp ./dist/apps/repositories/index.html ./dist/apps/repositories/200.html && surge ./dist/apps/repositories https://repo-crud.surge.sh/",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",
