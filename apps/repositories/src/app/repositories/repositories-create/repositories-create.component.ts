@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Visibility } from '@gh/core-data';
+import { Visibility, NotifyService } from '@gh/core-data';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RepositoriesFacade } from '@gh/core-state';
 
@@ -18,6 +18,7 @@ export class RepositoriesCreateComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private notifyService: NotifyService,
     private repositoriesFacade: RepositoriesFacade
   ) { }
 
@@ -27,6 +28,7 @@ export class RepositoriesCreateComponent implements OnInit {
 
   create() {
     this.repositoriesFacade.createRepository(this.form.value);
+    this.notifyService.notify(`Successfully Created: ${this.form.get('name').value}`);
   }
 
   private initForm() {

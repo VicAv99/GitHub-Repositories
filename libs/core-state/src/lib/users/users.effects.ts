@@ -5,7 +5,7 @@ import { DataPersistence } from '@nrwl/angular';
 import { map } from 'rxjs/operators';
 
 import * as usersActions from './users.actions';
-import { User, UserService } from '@gh/core-data';
+import { User, UserService, NotifyService } from '@gh/core-data';
 import { UsersPartialState } from './users.reducer';
 
 @Injectable()
@@ -20,7 +20,7 @@ export class UsersEffects {
       );
     },
     onError: (action: ReturnType<typeof usersActions.loadUser>, error) => {
-      console.log('Effect Error:', error);
+      this.notifyService.error(error.message);
     }
   });
 
@@ -32,6 +32,7 @@ export class UsersEffects {
   constructor(
     private actions$: Actions,
     private dataPersistence: DataPersistence<UsersPartialState>,
-    private usersService: UserService
+    private usersService: UserService,
+    private notifyService: NotifyService
   ) {}
 }

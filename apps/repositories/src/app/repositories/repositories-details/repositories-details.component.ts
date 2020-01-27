@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { tap, filter } from 'rxjs/operators';
 
-import { Repository } from '@gh/core-data';
+import { Repository, NotifyService } from '@gh/core-data';
 import { RepositoriesFacade } from '@gh/core-state';
 
 @Component({
@@ -23,6 +23,7 @@ export class RepositoriesDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
+    private notifyService: NotifyService,
     private repositoriesFacade: RepositoriesFacade
   ) { }
 
@@ -35,6 +36,7 @@ export class RepositoriesDetailsComponent implements OnInit {
 
   update() {
     this.repositoriesFacade.updateRepository(this.form.value);
+    this.notifyService.notify(`Successfully Updated: ${this.form.get('name').value}`);
   }
 
   private initForm() {

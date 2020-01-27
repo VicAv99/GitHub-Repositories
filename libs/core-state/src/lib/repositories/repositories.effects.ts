@@ -5,7 +5,7 @@ import { DataPersistence } from '@nrwl/angular';
 import { map } from 'rxjs/operators';
 
 import * as repositoriesActions from './repositories.actions';
-import { Repository, RepositoriesService } from '@gh/core-data';
+import { Repository, RepositoriesService, NotifyService } from '@gh/core-data';
 import { RepositoriesPartialState } from './repositories.reducer';
 import { of } from 'rxjs';
 
@@ -21,7 +21,7 @@ export class RepositoriesEffects {
       );
     },
     onError: (action: ReturnType<typeof repositoriesActions.loadRepositories>, error) => {
-      console.log('Effect Error:', error);
+      this.notifyService.error(error.message);
     }
   });
 
@@ -35,7 +35,7 @@ export class RepositoriesEffects {
       );
     },
     onError: (action: ReturnType<typeof repositoriesActions.createRepository>, error) => {
-      console.log('Effect Error:', error);
+      this.notifyService.error(error.message);
     }
   });
 
@@ -49,7 +49,7 @@ export class RepositoriesEffects {
       );
     },
     onError: (action: ReturnType<typeof repositoriesActions.updateRepository>, error) => {
-      console.log('Effect Error:', error);
+      this.notifyService.error(error.message);
     }
   });
 
@@ -63,13 +63,14 @@ export class RepositoriesEffects {
       );
     },
     onError: (action: ReturnType<typeof repositoriesActions.deleteRepository>, error) => {
-      console.log('Effect Error:', error);
+      this.notifyService.error(error.message);
     }
   });
 
   constructor(
     private actions$: Actions,
     private dataPersistence: DataPersistence<RepositoriesPartialState>,
-    private repositoriesService: RepositoriesService
+    private repositoriesService: RepositoriesService,
+    private notifyService: NotifyService
   ) {}
 }
