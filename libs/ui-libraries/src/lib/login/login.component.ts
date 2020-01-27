@@ -15,8 +15,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginWithGitHub() {
-    const { client_id, redirect_uri } = githubConfig;
-    window.location.href = `https://github.com/login/oauth/authorize?client_id=${client_id}&scope=user,public_repo,repo&redirect_uri=${redirect_uri}`;
+    window.location.href = `https://github.com/login/oauth/authorize?client_id=${githubConfig.client_id}&scope=user,public_repo,repo&redirect_uri=${window.location.href}/callback`;
   }
 
 }
