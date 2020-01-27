@@ -9,6 +9,7 @@ import { RootStoreConfig, StoreModule } from '@ngrx/store';
 import { CoreDataModule } from '@gh/core-data';
 import { reducers } from '.';
 import { UsersEffects } from './users/users.effects';
+import { RepositoriesEffects } from './repositories/repositories.effects';
 
 const storeConfig: RootStoreConfig<any> = {
   runtimeChecks: {
@@ -23,6 +24,7 @@ const storeConfig: RootStoreConfig<any> = {
     CoreDataModule,
     StoreModule.forRoot(reducers, storeConfig),
     EffectsModule.forRoot([
+      RepositoriesEffects,
       UsersEffects
     ]),
     StoreDevtoolsModule.instrument({ name: 'GH Repositories Store' })

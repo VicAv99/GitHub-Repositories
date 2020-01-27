@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Actions, createEffect, ofType, Effect } from '@ngrx/effects';
+import { Actions, ofType, Effect } from '@ngrx/effects';
 import { DataPersistence } from '@nrwl/angular';
 import { map } from 'rxjs/operators';
 
@@ -24,10 +24,10 @@ export class UsersEffects {
     }
   });
 
-  @Effect() selectUser$ = createEffect(() => this.dataPersistence.actions.pipe(
+  @Effect() selectUser$ = this.dataPersistence.actions.pipe(
     ofType(usersActions.userLoaded),
     map(({ user }) => usersActions.userSelected({selectedUserId: user.id}))
-  ));
+  );
 
   constructor(
     private actions$: Actions,
