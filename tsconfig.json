@@ -18,7 +18,8 @@
     "paths": {
       "@gh/material": ["libs/material/src/index.ts"],
       "@gh/ui-libraries": ["libs/ui-libraries/src/index.ts"],
-      "@gh/core-data": ["libs/core-data/src/index.ts"]
+      "@gh/core-data": ["libs/core-data/src/index.ts"],
+      "@gh/core-state": ["libs/core-state/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,5 +1,8 @@
 export { CoreDataModule } from './lib/core-data.module';
 
+// Models
+export { User, emptyUser } from './lib/user/user.model';
+
 // Services
 export { AuthGuard } from './lib/auth/auth.guard';
 export { AuthService } from './lib/auth/auth.service';

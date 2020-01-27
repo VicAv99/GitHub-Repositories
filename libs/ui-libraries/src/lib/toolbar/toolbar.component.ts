@@ -1,6 +1,10 @@
 import { Component, Input } from '@angular/core';
-
 import { MatSidenav } from '@angular/material';
+
+import { Observable } from 'rxjs';
+
+import { User } from '@gh/core-data';
+import { UsersFacade } from '@gh/core-state';
 
 @Component({
   selector: 'gh-toolbar',
@@ -10,6 +14,10 @@ import { MatSidenav } from '@angular/material';
 export class ToolbarComponent {
   title = 'GH Repositories';
   logo = 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png';
+  user$: Observable<User> = this.usersFacade.selectedUser$;
+
   @Input() links: any[];
   @Input() sidenav: MatSidenav;
+
+  constructor(private usersFacade: UsersFacade) {}
 }
