@@ -1,12 +1,8 @@
 <div class="repo-component">
   <mat-tab-group class="mt-5">
     <mat-tab label="Repositories">
-      <div class="container d-flex">
-        <div class="col-12">
-          <gh-repositories-list [repositories]="repositories$ | async">
-          </gh-repositories-list>
-        </div>
-      </div>
+      <gh-repositories-list [repositories]="repositories$ | async">
+      </gh-repositories-list>
     </mat-tab>
     <mat-tab matTooltip="Create a new Repository">
       <ng-template mat-tab-label>
